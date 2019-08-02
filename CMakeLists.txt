@@ -1,6 +1,6 @@
 cmake_minimum_required( VERSION 3.5 )
 
-project( EOSIO )
+project( POSE )
 
 enable_testing()
 
@@ -29,9 +29,9 @@ set( CMAKE_CXX_STANDARD 14 )
 set( CMAKE_CXX_EXTENSIONS ON )
 set( CXX_STANDARD_REQUIRED ON)
 
-set(VERSION_MAJOR 1)
-set(VERSION_MINOR 7)
-set(VERSION_PATCH 4)
+set(VERSION_MAJOR 0)
+set(VERSION_MINOR 1)
+set(VERSION_PATCH 0)
 
 if(VERSION_SUFFIX)
     set(VERSION_FULL "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}-${VERSION_SUFFIX}")
@@ -210,7 +210,7 @@ endif()
 message( STATUS "Using '${CORE_SYMBOL_NAME}' as CORE symbol name" )
 
 if ("${EOSIO_ROOT_KEY}" STREQUAL "")
-   set(EOSIO_ROOT_KEY "EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV")
+   set(EOSIO_ROOT_KEY "POSE8gjkgU16tsH8yHMpiLFug3dbkGPM1GetMUnFd6V8UNSoedr5LY")
 endif()
 
 message( STATUS "Using '${EOSIO_ROOT_KEY}' as public key for 'eosio' account" )
