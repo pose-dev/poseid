@@ -70,6 +70,7 @@ fi
 # llvm-4.0 is installed into /usr/lib/llvm-4.0
 # clang is necessary for building on ubuntu
 DEP_ARRAY=(
+	cmake mongodb \
 	git llvm-4.0 clang-4.0 libclang-4.0-dev make automake libbz2-dev libssl-dev doxygen graphviz \
 	libgmp3-dev autotools-dev build-essential libicu-dev python2.7 python2.7-dev python3 python3-dev \
 	autoconf libtool curl zlib1g-dev sudo ruby libusb-1.0-0-dev libcurl4-gnutls-dev pkg-config
@@ -134,6 +135,9 @@ printf "\\n"
 
 
 printf "Checking CMAKE installation...\\n"
+CMAKE=$(command -v cmake 2>/dev/null)
+# Check if cmake is already installed or not and use source install location
+if [ -z $CMAKE ]; then export CMAKE=$HOME/bin/cmake; fi
 if [ ! -e $CMAKE ]; then
 	printf "Installing CMAKE...\\n"
 	curl -LO https://cmake.org/files/v$CMAKE_VERSION_MAJOR.$CMAKE_VERSION_MINOR/cmake-$CMAKE_VERSION.tar.gz \
@@ -156,7 +160,10 @@ printf "\\n"
 
 
 printf "Checking Boost library (${BOOST_VERSION}) installation...\\n"
-BOOSTVERSION=$( grep "#define BOOST_VERSION" "$HOME/opt/boost/include/boost/version.hpp" 2>/dev/null | tail -1 | tr -s ' ' | cut -d\  -f3 )
+BOOSTVERSION=$( grep "#define BOOST_VERSION" "/usr/include/boost/version.hpp" 2>/dev/null | tail -1 | tr -s ' ' | cut -d\  -f3 )
+if [ "${BOOSTVERSION}" != "${BOOST_VERSION_MAJOR}0${BOOST_VERSION_MINOR}0${BOOST_VERSION_PATCH}" ]; then
+	BOOSTVERSION=$( grep "#define BOOST_VERSION" "$HOME/opt/boost/include/boost/version.hpp" 2>/dev/null | tail -1 | tr -s ' ' | cut -d\  -f3 )
+fi
 if [ "${BOOSTVERSION}" != "${BOOST_VERSION_MAJOR}0${BOOST_VERSION_MINOR}0${BOOST_VERSION_PATCH}" ]; then
 	printf "Installing Boost library...\\n"
 	curl -LO https://dl.bintray.com/boostorg/release/${BOOST_VERSION_MAJOR}.${BOOST_VERSION_MINOR}.${BOOST_VERSION_PATCH}/source/boost_$BOOST_VERSION.tar.bz2 \
@@ -179,26 +186,6 @@ if [ $? -ne 0 ]; then exit -1; fi
 printf "\\n"
 
 
-printf "Checking MongoDB installation...\\n"
-if [ ! -d $MONGODB_ROOT ]; then
-	printf "Installing MongoDB into ${MONGODB_ROOT}...\\n"
-	curl -OL http://downloads.mongodb.org/linux/mongodb-linux-x86_64-ubuntu$OS_MAJ$OS_MIN-$MONGODB_VERSION.tgz \
-	&& tar -xzf mongodb-linux-x86_64-ubuntu$OS_MAJ$OS_MIN-$MONGODB_VERSION.tgz \
-	&& mv $SRC_LOCATION/mongodb-linux-x86_64-ubuntu$OS_MAJ$OS_MIN-$MONGODB_VERSION $MONGODB_ROOT \
-	&& touch $MONGODB_LOG_LOCATION/mongod.log \
-	&& rm -f mongodb-linux-x86_64-ubuntu$OS_MAJ$OS_MIN-$MONGODB_VERSION.tgz \
-	&& cp -f $REPO_ROOT/scripts/mongod.conf $MONGODB_CONF \
-	&& mkdir -p $MONGODB_DATA_LOCATION \
-	&& rm -rf $MONGODB_LINK_LOCATION \
-	&& rm -rf $BIN_LOCATION/mongod \
-	&& ln -s $MONGODB_ROOT $MONGODB_LINK_LOCATION \
-	&& ln -s $MONGODB_LINK_LOCATION/bin/mongod $BIN_LOCATION/mongod \
-	|| exit 1
-	printf " - MongoDB successfully installed @ ${MONGODB_ROOT} (Symlinked to ${MONGODB_LINK_LOCATION}).\\n"
-else
-	printf " - MongoDB found with correct version @ ${MONGODB_ROOT} (Symlinked to ${MONGODB_LINK_LOCATION}).\\n"
-fi
-if [ $? -ne 0 ]; then exit -1; fi
 printf "Checking MongoDB C driver installation...\\n"
 if [ ! -d $MONGO_C_DRIVER_ROOT ]; then
 	printf "Installing MongoDB C driver...\\n"
