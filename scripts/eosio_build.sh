@@ -292,16 +292,18 @@ cd $REPO_ROOT
 
 TIME_END=$(( $(date -u +%s) - $TIME_BEGIN ))
 
-printf "${bldred}\n\n _______  _______  _______ _________ _______\n"
-printf '(  ____ \(  ___  )(  ____ \\\\__   __/(  ___  )\n'
-printf "| (    \/| (   ) || (    \/   ) (   | (   ) |\n"
-printf "| (__    | |   | || (_____    | |   | |   | |\n"
-printf "|  __)   | |   | |(_____  )   | |   | |   | |\n"
-printf "| (      | |   | |      ) |   | |   | |   | |\n"
-printf "| (____/\| (___) |/\____) |___) (___| (___) |\n"
-printf "(_______/(_______)\_______)\_______/(_______)\n\n${txtrst}"
+printf "${bldred}\n\n"
+printf " _______    _______     _______     _______\n"
+printf '(  ___  )  (  ___  )   (  ____ \   (  ____ \\\n'
+printf '| (   ) |  | (   ) |   | (    \/   |  (   \/\n'
+printf "| (___) |  | |   | |   | (_____    |  (____\n"
+printf "|  _____)  | |   | |   (_____  )   |   ____)\n"
+printf "| |        | |   | |         ) |   |  (\n"
+printf '| |      _ | (___) | _ /\____) | _ |  (___/\\\n'
+printf "(_)     (_)(_______)(_)\_______)(_)(_______/\n"
+printf "\n${txtrst}"
 
-printf "\\nEOSIO has been successfully built. %02d:%02d:%02d\\n" $(($TIME_END/3600)) $(($TIME_END%3600/60)) $(($TIME_END%60))
+printf "\\nPOSE has been successfully built. %02d:%02d:%02d\\n" $(($TIME_END/3600)) $(($TIME_END%3600/60)) $(($TIME_END%60))
 printf "==============================================================================================\\n${bldred}"
 printf "(Optional) Testing Instructions:\\n"
 print_instructions
@@ -309,9 +311,6 @@ printf "${BIN_LOCATION}/mongod --dbpath ${MONGODB_DATA_LOCATION} -f ${MONGODB_CO
 printf "cd ./build && PATH=\$PATH:$HOME/opt/mongodb/bin make test\\n" # PATH is set as currently 'mongo' binary is required for the mongodb test
 printf "${txtrst}==============================================================================================\\n"
 printf "For more information:\\n"
-printf "EOSIO website: https://eos.io\\n"
-printf "EOSIO Telegram channel @ https://t.me/EOSProject\\n"
-printf "EOSIO resources: https://eos.io/resources/\\n"
-printf "EOSIO Stack Exchange: https://eosio.stackexchange.com\\n"
-printf "EOSIO wiki: https://github.com/EOSIO/eos/wiki\\n\\n\\n"
+printf "POSE Github: https://github.com/pose-dev/poseid\\n"
+printf "POSE Telegram channel @ https://t.me/posedev\\n\\n\\n"
 
