@@ -135,6 +135,7 @@ struct controller_impl {
    bool                           trusted_producer_light_validation = false;
    uint32_t                       snapshot_head_block = 0;
    boost::asio::thread_pool       thread_pool;
+   fee_manager                    fee;
 
    typedef pair<scope_name,action_name>                   handler_key;
    map< account_name, map<handler_key, apply_handler> >   apply_handlers;
@@ -186,7 +187,8 @@ struct controller_impl {
     conf( cfg ),
     chain_id( cfg.genesis.compute_chain_id() ),
     read_mode( cfg.read_mode ),
-    thread_pool( cfg.thread_pool_size )
+    thread_pool( cfg.thread_pool_size ),
+    fee()
    {
 
 #define SET_APP_HANDLER( receiver, contract, action) \
@@ -1038,6 +1040,11 @@ struct controller_impl {
                        false
                );
             }
+
+            // update/set fee before use
+            //trx_context.update_fee();
+            trx_context.set_fee_payer();
+
             trx_context.exec();
             trx_context.finalize(); // Automatically rounds up network and CPU usage in trace and bills payers if successful
 
@@ -1709,6 +1716,15 @@ const authorization_manager&   controller::get_authorization_manager()const
 authorization_manager&         controller::get_mutable_authorization_manager()
 {
    return my->authorization;
+}
+
+const fee_manager&   controller::get_fee_manager()const
+{
+   return my->fee;
+}
+fee_manager&         controller::get_mutable_fee_manager()
+{
+   return my->fee;
 }
 
 controller::controller( const controller::config& cfg )

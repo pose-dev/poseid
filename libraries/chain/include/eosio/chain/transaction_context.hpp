@@ -1,4 +1,5 @@
 #pragma once
+#include <eosio/chain/asset.hpp>
 #include <eosio/chain/controller.hpp>
 #include <eosio/chain/trace.hpp>
 #include <signal.h>
@@ -64,6 +65,9 @@ namespace eosio { namespace chain {
 
          void add_ram_usage( account_name account, int64_t ram_delta );
 
+         void set_fee_payer();
+         const action make_fee_action( const action& act, const asset& fee ) const;
+         void dispatch_fee_action( vector<action_trace>& trace, const action& act );
          void dispatch_action( action_trace& trace, const action& a, account_name receiver, bool context_free = false, uint32_t recurse_depth = 0 );
          inline void dispatch_action( action_trace& trace, const action& a, bool context_free = false ) {
             dispatch_action(trace, a, a.account, context_free);
@@ -103,6 +107,7 @@ namespace eosio { namespace chain {
          int64_t                       billed_cpu_time_us = 0;
          bool                          explicit_billed_cpu_time = false;
 
+         account_name                  fee_payer      = name{};
       private:
          bool                          is_initialized = false;
 

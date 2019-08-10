@@ -6,6 +6,7 @@
 #include <eosio/chain/generated_transaction_object.hpp>
 #include <eosio/chain/transaction_object.hpp>
 #include <eosio/chain/global_property_object.hpp>
+#include <eosio/chain/fee_object.hpp>
 
 #pragma push_macro("N")
 #undef N
@@ -329,11 +330,47 @@ namespace bacc = boost::accumulators;
       init( 0 );
    }
 
+   void transaction_context::set_fee_payer(){
+      EOS_ASSERT(!trx.actions[0].authorization.empty(), transaction_exception, "authorization empty");
+      fee_payer = trx.actions[0].authorization[0].actor;
+      EOS_ASSERT(fee_payer != name{}, transaction_exception, "fee_payer nil");
+      dlog("trying to set_fee for payer:${payer}", ("payer", fee_payer));
+   }
+
+   const action transaction_context::make_fee_action( const action& act, const asset& fee ) const {
+      // TODO
+      // may need some checks
+      const bytes param_data = fc::raw::pack(fee_paramter{
+            fee_payer, fee, name{}
+      });
+      return action{
+            vector<permission_level>{{fee_payer, config::active_name}},
+            config::system_account_name,
+            N(onfee),
+            param_data,
+      };
+   }
+
+   void transaction_context::dispatch_fee_action(
+      vector<action_trace>& action_traces, const action& act )
+   {
+      if(act.name == N(onblock)){
+         return;
+      }
+      action_traces.emplace_back();
+      const auto fee = control.get_fee_manager().get_fee(control, act);
+      const auto& fee_act = make_fee_action(act, fee);
+
+      dispatch_action(action_traces.back(), fee_act);
+   }
+
    void transaction_context::exec() {
       EOS_ASSERT( is_initialized, transaction_exception, "must first initialize" );
 
       if( apply_context_free ) {
          for( const auto& act : trx.context_free_actions ) {
+            // pay fee at first
+            dispatch_fee_action(trace->action_traces, act);
             trace->action_traces.emplace_back();
             dispatch_action( trace->action_traces.back(), act, true );
          }
@@ -341,6 +378,8 @@ namespace bacc = boost::accumulators;
 
       if( delay == fc::microseconds() ) {
          for( const auto& act : trx.actions ) {
+            // pay fee at first for delay trx
+            dispatch_fee_action(trace->action_traces, act);
             trace->action_traces.emplace_back();
             dispatch_action( trace->action_traces.back(), act );
          }
