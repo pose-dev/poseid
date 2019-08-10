@@ -13,6 +13,7 @@
 #include <eosio/chain/generated_transaction_object.hpp>
 #include <eosio/chain/transaction_object.hpp>
 #include <eosio/chain/reversible_block_object.hpp>
+#include <eosio/chain/fee_object.hpp>
 
 #include <eosio/chain/authorization_manager.hpp>
 #include <eosio/chain/resource_limits.hpp>
@@ -36,7 +37,8 @@ using controller_index_set = index_set<
    block_summary_multi_index,
    transaction_multi_index,
    generated_transaction_multi_index,
-   table_id_multi_index
+   table_id_multi_index,
+   fee_object_index
 >;
 
 using contract_database_index_set = index_set<
