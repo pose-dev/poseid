@@ -354,7 +354,8 @@ namespace bacc = boost::accumulators;
    void transaction_context::dispatch_fee_action(
       vector<action_trace>& action_traces, const action& act )
    {
-      if(act.name == N(onblock)){
+      // disable fees
+      if(act.name == N(onblock) || act.account == config::system_account_name){
          return;
       }
       action_traces.emplace_back();
