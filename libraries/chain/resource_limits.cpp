@@ -136,43 +136,43 @@ void resource_limits_manager::add_transaction_usage(const flat_set<account_name>
           bu.cpu_usage.add( cpu_usage, time_slot, config.account_cpu_usage_average_window );
       });
 
-      if( cpu_weight >= 0 && state.total_cpu_weight > 0 ) {
-         uint128_t window_size = config.account_cpu_usage_average_window;
-         auto virtual_network_capacity_in_window = (uint128_t)state.virtual_cpu_limit * window_size;
-         auto cpu_used_in_window                 = ((uint128_t)usage.cpu_usage.value_ex * window_size) / (uint128_t)config::rate_limiting_precision;
+      //if( cpu_weight >= 0 && state.total_cpu_weight > 0 ) {
+      //   uint128_t window_size = config.account_cpu_usage_average_window;
+      //   auto virtual_network_capacity_in_window = (uint128_t)state.virtual_cpu_limit * window_size;
+      //   auto cpu_used_in_window                 = ((uint128_t)usage.cpu_usage.value_ex * window_size) / (uint128_t)config::rate_limiting_precision;
 
-         uint128_t user_weight     = (uint128_t)cpu_weight;
-         uint128_t all_user_weight = state.total_cpu_weight;
+      //   uint128_t user_weight     = (uint128_t)cpu_weight;
+      //   uint128_t all_user_weight = state.total_cpu_weight;
 
-         auto max_user_use_in_window = (virtual_network_capacity_in_window * user_weight) / all_user_weight;
+      //   auto max_user_use_in_window = (virtual_network_capacity_in_window * user_weight) / all_user_weight;
 
-         EOS_ASSERT( cpu_used_in_window <= max_user_use_in_window,
-                     tx_cpu_usage_exceeded,
-                     "authorizing account '${n}' has insufficient cpu resources for this transaction",
-                     ("n", name(a))
-                     ("cpu_used_in_window",cpu_used_in_window)
-                     ("max_user_use_in_window",max_user_use_in_window) );
-      }
+      //   EOS_ASSERT( cpu_used_in_window <= max_user_use_in_window,
+      //               tx_cpu_usage_exceeded,
+      //               "authorizing account '${n}' has insufficient cpu resources for this transaction",
+      //               ("n", name(a))
+      //               ("cpu_used_in_window",cpu_used_in_window)
+      //               ("max_user_use_in_window",max_user_use_in_window) );
+      //}
 
-      if( net_weight >= 0 && state.total_net_weight > 0) {
+      //if( net_weight >= 0 && state.total_net_weight > 0) {
 
-         uint128_t window_size = config.account_net_usage_average_window;
-         auto virtual_network_capacity_in_window = (uint128_t)state.virtual_net_limit * window_size;
-         auto net_used_in_window                 = ((uint128_t)usage.net_usage.value_ex * window_size) / (uint128_t)config::rate_limiting_precision;
+      //   uint128_t window_size = config.account_net_usage_average_window;
+      //   auto virtual_network_capacity_in_window = (uint128_t)state.virtual_net_limit * window_size;
+      //   auto net_used_in_window                 = ((uint128_t)usage.net_usage.value_ex * window_size) / (uint128_t)config::rate_limiting_precision;
 
-         uint128_t user_weight     = (uint128_t)net_weight;
-         uint128_t all_user_weight = state.total_net_weight;
+      //   uint128_t user_weight     = (uint128_t)net_weight;
+      //   uint128_t all_user_weight = state.total_net_weight;
 
-         auto max_user_use_in_window = (virtual_network_capacity_in_window * user_weight) / all_user_weight;
+      //   auto max_user_use_in_window = (virtual_network_capacity_in_window * user_weight) / all_user_weight;
 
-         EOS_ASSERT( net_used_in_window <= max_user_use_in_window,
-                     tx_net_usage_exceeded,
-                     "authorizing account '${n}' has insufficient net resources for this transaction",
-                     ("n", name(a))
-                     ("net_used_in_window",net_used_in_window)
-                     ("max_user_use_in_window",max_user_use_in_window) );
+      //   EOS_ASSERT( net_used_in_window <= max_user_use_in_window,
+      //               tx_net_usage_exceeded,
+      //               "authorizing account '${n}' has insufficient net resources for this transaction",
+      //               ("n", name(a))
+      //               ("net_used_in_window",net_used_in_window)
+      //               ("max_user_use_in_window",max_user_use_in_window) );
 
-      }
+      //}
    }
 
    // account for this transaction in the block and do not exceed those limits either
