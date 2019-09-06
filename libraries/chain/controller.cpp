@@ -13,6 +13,7 @@
 #include <eosio/chain/generated_transaction_object.hpp>
 #include <eosio/chain/transaction_object.hpp>
 #include <eosio/chain/reversible_block_object.hpp>
+#include <eosio/chain/fee_object.hpp>
 
 #include <eosio/chain/authorization_manager.hpp>
 #include <eosio/chain/resource_limits.hpp>
@@ -36,7 +37,8 @@ using controller_index_set = index_set<
    block_summary_multi_index,
    transaction_multi_index,
    generated_transaction_multi_index,
-   table_id_multi_index
+   table_id_multi_index,
+   fee_object_index
 >;
 
 using contract_database_index_set = index_set<
@@ -133,6 +135,7 @@ struct controller_impl {
    bool                           trusted_producer_light_validation = false;
    uint32_t                       snapshot_head_block = 0;
    boost::asio::thread_pool       thread_pool;
+   fee_manager                    fee;
 
    typedef pair<scope_name,action_name>                   handler_key;
    map< account_name, map<handler_key, apply_handler> >   apply_handlers;
@@ -184,26 +187,27 @@ struct controller_impl {
     conf( cfg ),
     chain_id( cfg.genesis.compute_chain_id() ),
     read_mode( cfg.read_mode ),
-    thread_pool( cfg.thread_pool_size )
+    thread_pool( cfg.thread_pool_size ),
+    fee()
    {
 
 #define SET_APP_HANDLER( receiver, contract, action) \
    set_apply_handler( #receiver, #contract, #action, &BOOST_PP_CAT(apply_, BOOST_PP_CAT(contract, BOOST_PP_CAT(_,action) ) ) )
 
-   SET_APP_HANDLER( eosio, eosio, newaccount );
-   SET_APP_HANDLER( eosio, eosio, setcode );
-   SET_APP_HANDLER( eosio, eosio, setabi );
-   SET_APP_HANDLER( eosio, eosio, updateauth );
-   SET_APP_HANDLER( eosio, eosio, deleteauth );
-   SET_APP_HANDLER( eosio, eosio, linkauth );
-   SET_APP_HANDLER( eosio, eosio, unlinkauth );
+   SET_APP_HANDLER( pose, pose, newaccount );
+   SET_APP_HANDLER( pose, pose, setcode );
+   SET_APP_HANDLER( pose, pose, setabi );
+   SET_APP_HANDLER( pose, pose, updateauth );
+   SET_APP_HANDLER( pose, pose, deleteauth );
+   SET_APP_HANDLER( pose, pose, linkauth );
+   SET_APP_HANDLER( pose, pose, unlinkauth );
 /*
    SET_APP_HANDLER( eosio, eosio, postrecovery );
    SET_APP_HANDLER( eosio, eosio, passrecovery );
    SET_APP_HANDLER( eosio, eosio, vetorecovery );
 */
 
-   SET_APP_HANDLER( eosio, eosio, canceldelay );
+   SET_APP_HANDLER( pose, pose, canceldelay );
 
    fork_db.irreversible.connect( [&]( auto b ) {
                                  on_irreversible(b);
@@ -1036,6 +1040,11 @@ struct controller_impl {
                        false
                );
             }
+
+            // update/set fee before use
+            //trx_context.update_fee();
+            trx_context.set_fee_payer();
+
             trx_context.exec();
             trx_context.finalize(); // Automatically rounds up network and CPU usage in trace and bills payers if successful
 
@@ -1707,6 +1716,15 @@ const authorization_manager&   controller::get_authorization_manager()const
 authorization_manager&         controller::get_mutable_authorization_manager()
 {
    return my->authorization;
+}
+
+const fee_manager&   controller::get_fee_manager()const
+{
+   return my->fee;
+}
+fee_manager&         controller::get_mutable_fee_manager()
+{
+   return my->fee;
 }
 
 controller::controller( const controller::config& cfg )

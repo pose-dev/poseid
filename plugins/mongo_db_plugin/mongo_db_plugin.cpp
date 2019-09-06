@@ -149,6 +149,7 @@ public:
    mongocxx::collection _blocks;
    mongocxx::collection _pub_keys;
    mongocxx::collection _account_controls;
+   mongocxx::collection _proofs;
 
    size_t max_queue_size = 0;
    int queue_sleep_time = 0;
@@ -193,6 +194,7 @@ public:
    static const action_name deleteauth;
    static const permission_name owner;
    static const permission_name active;
+   static const action_name submitproof;
 
    static const std::string block_states_col;
    static const std::string blocks_col;
@@ -202,6 +204,7 @@ public:
    static const std::string accounts_col;
    static const std::string pub_keys_col;
    static const std::string account_controls_col;
+   static const std::string proofs_col;
 };
 
 const action_name mongo_db_plugin_impl::newaccount = chain::newaccount::get_name();
@@ -210,6 +213,7 @@ const action_name mongo_db_plugin_impl::updateauth = chain::updateauth::get_name
 const action_name mongo_db_plugin_impl::deleteauth = chain::deleteauth::get_name();
 const permission_name mongo_db_plugin_impl::owner = chain::config::owner_name;
 const permission_name mongo_db_plugin_impl::active = chain::config::active_name;
+const action_name mongo_db_plugin_impl::submitproof = N(submitproof);
 
 const std::string mongo_db_plugin_impl::block_states_col = "block_states";
 const std::string mongo_db_plugin_impl::blocks_col = "blocks";
@@ -219,6 +223,7 @@ const std::string mongo_db_plugin_impl::action_traces_col = "action_traces";
 const std::string mongo_db_plugin_impl::accounts_col = "accounts";
 const std::string mongo_db_plugin_impl::pub_keys_col = "pub_keys";
 const std::string mongo_db_plugin_impl::account_controls_col = "account_controls";
+const std::string mongo_db_plugin_impl::proofs_col = "proofs";
 
 bool mongo_db_plugin_impl::filter_include( const account_name& receiver, const action_name& act_name,
                                            const vector<chain::permission_level>& authorization ) const
@@ -403,6 +408,7 @@ void mongo_db_plugin_impl::consume_blocks() {
       _block_states = mongo_conn[db_name][block_states_col];
       _pub_keys = mongo_conn[db_name][pub_keys_col];
       _account_controls = mongo_conn[db_name][account_controls_col];
+      _proofs = mongo_conn[db_name][proofs_col];
 
       while (true) {
          std::unique_lock<std::mutex> lock(mtx);
@@ -846,6 +852,34 @@ mongo_db_plugin_impl::add_action_trace( mongocxx::bulk_write& bulk_action_traces
       string json = fc::json::to_string( v );
       try {
          const auto& value = bsoncxx::from_json( json );
+
+         // try to save proof data
+         try {
+            std::string acc = value.view()["act"]["account"].get_utf8().value.to_string();
+            std::string name = value.view()["act"]["name"].get_utf8().value.to_string();
+            auto data = value.view()["act"]["data"].get_document().view();
+
+            if (atrace.act.name == submitproof){
+               auto proof_data = bsoncxx::from_json(data["data"].get_utf8().value.to_string());
+               auto proof_doc = bsoncxx::builder::basic::document{};
+               proof_doc.append( kvp( "_id", make_custom_oid() ) );
+               proof_doc.append( bsoncxx::builder::concatenate_doc{proof_data.view()} );
+               ilog("submitproof data : ${data}", ("data", bsoncxx::to_json(proof_doc)));
+
+               mongocxx::model::insert_one insert_op{proof_doc.view()};
+               mongocxx::options::bulk_write bulk_opts;
+               mongocxx::bulk_write proof_bulk = _proofs.create_bulk_write(bulk_opts);
+               proof_bulk.append( insert_op );
+               proof_bulk.execute();
+               added = true;
+            }
+         } catch( bsoncxx::exception& e) {
+            ilog("=============== ${data}", ("data", json));
+            ilog("submitproof action error ${e}", ("e",e.what()));
+         } catch (...) {
+            ilog("other exceptions");
+         } // save proof data
+
          action_traces_doc.append( bsoncxx::builder::concatenate_doc{value.view()} );
       } catch( bsoncxx::exception& ) {
          try {
