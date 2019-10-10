@@ -8,6 +8,7 @@
 #include <eosio/chain/exceptions.hpp>
 #include <eosio/chain/transaction.hpp>
 #include <eosio/chain/types.hpp>
+#include <eosio/chain/exname.hpp>
 
 #include <fc/io/json.hpp>
 #include <fc/utf8.hpp>
@@ -36,6 +37,7 @@ namespace fc { class variant; }
 
 namespace eosio {
 
+using chain::exname;
 using chain::account_name;
 using chain::action_name;
 using chain::block_id_type;
@@ -117,6 +119,8 @@ public:
 
    void init();
    void wipe_database();
+
+   void extend_accountname(fc::variant& v);
 
    template<typename Queue, typename Entry> void queue(Queue& queue, const Entry& e);
 
@@ -667,6 +671,9 @@ optional<abi_serializer> mongo_db_plugin_impl::get_abi_serializer( account_name 
                      if( f.name.empty() ) {
                         f.name = "empty_field_name";
                      }
+                     if( f.type == "name"){
+                        f.type = "exname";
+                     }
                   }
                }
                abis.set_abi( abi, abi_serializer_max_time );
@@ -824,6 +831,53 @@ void mongo_db_plugin_impl::_process_accepted_transaction( const chain::transacti
 
 }
 
+void 
+mongo_db_plugin_impl::extend_accountname( fc::variant& v ) {
+   {
+      chain::variant_object o = v.get_object();
+      chain::mutable_variant_object mvo (o);
+      auto iter = mvo.find("receipt");
+      if (iter != mvo.end())
+      {
+         chain::variant_object rec_o = iter->value().get_object();
+         chain::mutable_variant_object rec_mvo( rec_o );
+
+         auto iter = rec_mvo.find("receiver");
+         if( iter != rec_mvo.end() ) {
+            const exname ex_act (iter->value().as_string());
+            fc::variant var;
+            fc::to_variant(ex_act, var);
+            rec_mvo.set("receiver", var);
+            rec_o = rec_mvo;
+
+            v = mvo;
+         }
+      }
+   }
+
+   {
+      chain::variant_object o = v.get_object();
+      chain::mutable_variant_object mvo (o);
+      auto iter = mvo.find("act");
+      if( iter != mvo.end() )
+      {
+         chain::variant_object rec_o = iter->value().get_object();
+         chain::mutable_variant_object rec_mvo( rec_o );
+
+         auto iter = rec_mvo.find("account");
+         if( iter != rec_mvo.end() ) {
+            const exname ex_act (iter->value().as_string());
+            fc::variant var;
+            fc::to_variant(ex_act, var);
+            rec_mvo.set("account", var);
+            rec_o = rec_mvo;
+
+            v = mvo;
+         }
+      }
+   }
+}
+
 bool
 mongo_db_plugin_impl::add_action_trace( mongocxx::bulk_write& bulk_action_traces, const chain::action_trace& atrace,
                                         const chain::transaction_trace_ptr& t,
@@ -849,6 +903,7 @@ mongo_db_plugin_impl::add_action_trace( mongocxx::bulk_write& bulk_action_traces
       action_traces_doc.append( kvp( "_id", make_custom_oid() ) );
 
       auto v = to_variant_with_abi( base );
+      extend_accountname(v);
       string json = fc::json::to_string( v );
       try {
          const auto& value = bsoncxx::from_json( json );
@@ -1185,9 +1240,9 @@ void mongo_db_plugin_impl::add_pub_keys( const vector<chain::key_weight>& keys, 
    for( const auto& pub_key_weight : keys ) {
       auto find_doc = bsoncxx::builder::basic::document();
 
-      find_doc.append( kvp( "account", name.to_string()),
+      find_doc.append( kvp( "account", exname(name).to_string()),
                        kvp( "public_key", pub_key_weight.key.operator string()),
-                       kvp( "permission", permission.to_string()) );
+                       kvp( "permission", exname(permission).to_string()) );
 
       auto update_doc = make_document( kvp( "$set", make_document( bsoncxx::builder::concatenate_doc{find_doc.view()},
                                                                    kvp( "createdAt", b_date{now} ))));
@@ -1241,9 +1296,9 @@ void mongo_db_plugin_impl::add_account_control( const vector<chain::permission_l
    for( const auto& controlling_account : controlling_accounts ) {
       auto find_doc = bsoncxx::builder::basic::document();
 
-      find_doc.append( kvp( "controlled_account", name.to_string()),
-                       kvp( "controlled_permission", permission.to_string()),
-                       kvp( "controlling_account", controlling_account.permission.actor.to_string()) );
+      find_doc.append( kvp( "controlled_account", exname(name).to_string()),
+                       kvp( "controlled_permission", exname(permission).to_string()),
+                       kvp( "controlling_account", exname(controlling_account.permission.actor).to_string()) );
 
       auto update_doc = make_document( kvp( "$set", make_document( bsoncxx::builder::concatenate_doc{find_doc.view()},
                                                                    kvp( "createdAt", b_date{now} ))));
@@ -1293,7 +1348,7 @@ void create_account( mongocxx::collection& accounts, const name& name, std::chro
    mongocxx::options::update update_opts{};
    update_opts.upsert( true );
 
-   const string name_str = name.to_string();
+   const string name_str = exname(name).to_string();
    auto update = make_document(
          kvp( "$set", make_document( kvp( "name", name_str),
                                      kvp( "createdAt", b_date{now} ))));

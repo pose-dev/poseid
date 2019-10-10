@@ -9,6 +9,7 @@ file(GLOB HEADERS "include/eosio/chain/*.hpp"
 add_library( eosio_chain
              merkle.cpp
              name.cpp
+             exname.cpp
              transaction.cpp
              block_header.cpp
              block_header_state.cpp

@@ -4,6 +4,7 @@
  */
 #pragma once
 #include <eosio/chain/name.hpp>
+#include <eosio/chain/exname.hpp>
 #include <eosio/chain/chain_id_type.hpp>
 
 #include <chainbase/chainbase.hpp>

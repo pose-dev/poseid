@@ -7,12 +7,29 @@
 namespace eosio { namespace chain { 
 
    void name::set( const char* str ) {
-      const auto len = strnlen(str, 14);
-      EOS_ASSERT(len <= 13, name_type_exception, "Name is longer than 13 characters (${name}) ", ("name", string(str)));
-      value = string_to_name(str);
-      EOS_ASSERT(to_string() == string(str), name_type_exception,
-                 "Name not properly normalized (name: ${name}, normalized: ${normalized}) ",
-                 ("name", string(str))("normalized", to_string()));
+      const auto len = strnlen(str, 24);
+      if (len == 24)
+      {
+         std::string str2(str);
+         const char* str3 = str2.substr(4, 12).c_str();
+
+         value = string_to_name(str3);
+         EOS_ASSERT(to_string() == string(str3), name_type_exception,
+                    "Name not properly normalized (name: ${name}, normalized: ${normalized}) ",
+                    ("name", string(str3))("normalized", to_string()));
+
+         // TODO
+         // add sha256 check
+         // EOS_ASSERT()
+      }
+      else
+      {
+         EOS_ASSERT(len <= 13, name_type_exception, "Name is longer than 13 characters (${name}) ", ("name", string(str)));
+         value = string_to_name(str);
+         EOS_ASSERT(to_string() == string(str), name_type_exception,
+                    "Name not properly normalized (name: ${name}, normalized: ${normalized}) ",
+                    ("name", string(str))("normalized", to_string()));
+      }
    }
 
    // keep in sync with name::to_string() in contract definition for name
