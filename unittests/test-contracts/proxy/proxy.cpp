@@ -3,7 +3,7 @@
  *  @copyright defined in eos/LICENSE
  */
 #include "proxy.hpp"
-#include <eosio/transaction.hpp>
+#include <pose/transaction.hpp>
 
 using namespace eosio;
 

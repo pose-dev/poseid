@@ -4,8 +4,8 @@
  */
 #pragma once
 
-#include <eosio/chain/abi_serializer.hpp>
-#include <eosio/testing/tester.hpp>
+#include <pose/chain/abi_serializer.hpp>
+#include <pose/testing/tester.hpp>
 
 #include <fc/variant_object.hpp>
 

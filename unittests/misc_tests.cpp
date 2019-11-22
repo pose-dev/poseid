@@ -2,12 +2,12 @@
  *  @file
  *  @copyright defined in eos/LICENSE
  */
-#include <eosio/chain/asset.hpp>
-#include <eosio/chain/authority.hpp>
-#include <eosio/chain/authority_checker.hpp>
-#include <eosio/chain/chain_config.hpp>
-#include <eosio/chain/types.hpp>
-#include <eosio/testing/tester.hpp>
+#include <pose/chain/asset.hpp>
+#include <pose/chain/authority.hpp>
+#include <pose/chain/authority_checker.hpp>
+#include <pose/chain/chain_config.hpp>
+#include <pose/chain/types.hpp>
+#include <pose/testing/tester.hpp>
 
 #include <fc/io/json.hpp>
 

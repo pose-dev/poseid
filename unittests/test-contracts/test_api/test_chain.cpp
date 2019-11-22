@@ -2,9 +2,9 @@
  *  @file
  *  @copyright defined in eos/LICENSE
  */
-#include <eosiolib/action.h>
-#include <eosiolib/chain.h>
-#include <eosiolib/eosio.hpp>
+#include <poselib/action.h>
+#include <poselib/chain.h>
+#include <poselib/eosio.hpp>
 
 #include "test_api.hpp"
 

@@ -4,7 +4,7 @@
  */
 #pragma once
 
-#include <eosio/eosio.hpp>
+#include <pose/eosio.hpp>
 #include <vector>
 
 class [[eosio::contract]] deferred_test : public eosio::contract {

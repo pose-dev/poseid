@@ -2,7 +2,7 @@
  *  @file
  *  @copyright defined in eos/LICENSE
  */
-#include <eosiolib/eosio.hpp>
+#include <poselib/eosio.hpp>
 
 #include "test_api.hpp"
 

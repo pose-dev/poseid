@@ -15,10 +15,10 @@
 #include <fc/log/logger.hpp>
 #include <fc/scoped_exit.hpp>
 
-#include <eosio/chain/contract_types.hpp>
-#include <eosio/chain/abi_serializer.hpp>
-#include <eosio/chain/eosio_contract.hpp>
-#include <eosio/testing/tester.hpp>
+#include <pose/chain/contract_types.hpp>
+#include <pose/chain/abi_serializer.hpp>
+#include <pose/chain/eosio_contract.hpp>
+#include <pose/testing/tester.hpp>
 
 #include <boost/test/framework.hpp>
 

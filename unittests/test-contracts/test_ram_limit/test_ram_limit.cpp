@@ -6,7 +6,7 @@
 #include <vector>
 #include <string>
 
-#include <eosiolib/eosio.hpp>
+#include <poselib/eosio.hpp>
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wsign-conversion"

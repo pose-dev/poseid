@@ -2,11 +2,11 @@
  *  @file
  *  @copyright defined in eos/LICENSE.txt
  */
-#include <eosio/chain/abi_serializer.hpp>
-#include <eosio/chain/abi_serializer.hpp>
-#include <eosio/testing/tester.hpp>
+#include <pose/chain/abi_serializer.hpp>
+#include <pose/chain/abi_serializer.hpp>
+#include <pose/testing/tester.hpp>
 
-#include <eosio/chain/fork_database.hpp>
+#include <pose/chain/fork_database.hpp>
 
 #include <Runtime/Runtime.h>
 

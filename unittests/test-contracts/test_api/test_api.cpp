@@ -2,8 +2,8 @@
  *  @file
  *  @copyright defined in eos/LICENSE
  */
-#include <eosiolib/eosio.hpp>
-#include <eosiolib/transaction.hpp>
+#include <poselib/eosio.hpp>
+#include <poselib/transaction.hpp>
 
 #include "test_api.hpp"
 

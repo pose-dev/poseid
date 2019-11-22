@@ -4,12 +4,12 @@
  */
 #include <limits>
 
-#include <eosiolib/action.hpp>
-#include <eosiolib/db.h>
-#include <eosiolib/eosio.hpp>
-#include <eosiolib/permission.h>
-#include <eosiolib/print.hpp>
-#include <eosiolib/serialize.hpp>
+#include <poselib/action.hpp>
+#include <poselib/db.h>
+#include <poselib/eosio.hpp>
+#include <poselib/permission.h>
+#include <poselib/print.hpp>
+#include <poselib/serialize.hpp>
 
 #include "test_api.hpp"
 

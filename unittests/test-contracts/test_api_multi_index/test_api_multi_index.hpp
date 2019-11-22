@@ -4,7 +4,7 @@
  */
 #pragma once
 
-#include <eosio/eosio.hpp>
+#include <pose/eosio.hpp>
 
 class [[eosio::contract]] test_api_multi_index : public eosio::contract {
 public:

@@ -4,8 +4,8 @@
  */
 #include <cmath>
 
-#include <eosiolib/eosio.hpp>
-#include <eosiolib/datastream.hpp>
+#include <poselib/eosio.hpp>
+#include <poselib/datastream.hpp>
 
 #include "test_api.hpp"
 

@@ -4,9 +4,9 @@
  */
 #include <algorithm>
 
-#include <eosio/chain/config.hpp>
-#include <eosio/chain/resource_limits.hpp>
-#include <eosio/testing/chainbase_fixture.hpp>
+#include <pose/chain/config.hpp>
+#include <pose/chain/resource_limits.hpp>
+#include <pose/testing/chainbase_fixture.hpp>
 
 #include <boost/test/unit_test.hpp>
 

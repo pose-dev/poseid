@@ -4,9 +4,9 @@
  */
 #pragma once
 
-#include <eosio/eosio.hpp>
-#include <eosio/singleton.hpp>
-#include <eosio/asset.hpp>
+#include <pose/eosio.hpp>
+#include <pose/singleton.hpp>
+#include <pose/asset.hpp>
 
 // Extacted from eosio.token contract:
 namespace eosio {

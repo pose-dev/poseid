@@ -7,8 +7,8 @@
 #include <boost/test/unit_test.hpp>
 #pragma GCC diagnostic pop
 
-#include <eosio/testing/tester.hpp>
-#include <eosio/chain/abi_serializer.hpp>
+#include <pose/testing/tester.hpp>
+#include <pose/chain/abi_serializer.hpp>
 
 #include <Runtime/Runtime.h>
 

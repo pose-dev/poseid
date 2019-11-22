@@ -2,15 +2,15 @@
  * @file action_test.cpp
  * @copyright defined in eos/LICENSE
  */
-#include <eosiolib/action.hpp>
-#include <eosiolib/chain.h>
-#include <eosiolib/crypto.h>
-#include <eosiolib/datastream.hpp>
-#include <eosiolib/db.h>
-#include <eosiolib/eosio.hpp>
-#include <eosiolib/print.hpp>
-#include <eosiolib/privileged.h>
-#include <eosiolib/transaction.hpp>
+#include <poselib/action.hpp>
+#include <poselib/chain.h>
+#include <poselib/crypto.h>
+#include <poselib/datastream.hpp>
+#include <poselib/db.h>
+#include <poselib/eosio.hpp>
+#include <poselib/print.hpp>
+#include <poselib/privileged.h>
+#include <poselib/transaction.hpp>
 
 #include "test_api.hpp"
 

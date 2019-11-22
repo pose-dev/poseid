@@ -4,8 +4,8 @@
  */
 #include <sstream>
 
-#include <eosio/chain/snapshot.hpp>
-#include <eosio/testing/tester.hpp>
+#include <pose/chain/snapshot.hpp>
+#include <pose/testing/tester.hpp>
 
 #include <boost/mpl/list.hpp>
 #include <boost/test/unit_test.hpp>

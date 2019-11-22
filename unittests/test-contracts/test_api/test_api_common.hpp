@@ -4,7 +4,7 @@
  */
 #pragma once
 
-#include <eosiolib/serialize.hpp>
+#include <poselib/serialize.hpp>
 
 
 static constexpr unsigned int DJBH( const char* cp )

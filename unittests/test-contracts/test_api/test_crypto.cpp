@@ -2,9 +2,9 @@
  *  @file
  *  @copyright defined in eos/LICENSE
  */
-#include <eosiolib/crypto.h>
-#include <eosiolib/eosio.hpp>
-#include <eosiolib/print.hpp>
+#include <poselib/crypto.h>
+#include <poselib/eosio.hpp>
+#include <poselib/print.hpp>
 
 #include "test_api.hpp"
 

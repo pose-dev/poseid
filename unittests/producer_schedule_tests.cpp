@@ -2,8 +2,8 @@
  *  @file
  *  @copyright defined in eos/LICENSE.txt
  */
-#include <eosio/chain/global_property_object.hpp>
-#include <eosio/testing/tester.hpp>
+#include <pose/chain/global_property_object.hpp>
+#include <pose/testing/tester.hpp>
 
 #include <boost/range/algorithm.hpp>
 #include <boost/test/unit_test.hpp>
