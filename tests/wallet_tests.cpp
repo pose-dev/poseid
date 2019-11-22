@@ -2,13 +2,13 @@
  *  @file
  *  @copyright defined in eos/LICENSE
  */
-#include <eosio/chain/genesis_state.hpp>
-#include <eosio/wallet_plugin/wallet.hpp>
-#include <eosio/wallet_plugin/wallet_manager.hpp>
+#include <pose/chain/genesis_state.hpp>
+#include <pose/wallet_plugin/wallet.hpp>
+#include <pose/wallet_plugin/wallet_manager.hpp>
 
 #include <boost/test/unit_test.hpp>
-#include <eosio/chain/authority.hpp>
-#include <eosio/chain/exceptions.hpp>
+#include <pose/chain/authority.hpp>
+#include <pose/chain/exceptions.hpp>
 
 namespace eosio {
 

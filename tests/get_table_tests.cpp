@@ -5,13 +5,13 @@
 #include <boost/test/unit_test.hpp>
 #include <boost/algorithm/string/predicate.hpp>
 
-#include <eosio/testing/tester.hpp>
-#include <eosio/chain/abi_serializer.hpp>
-#include <eosio/chain/wasm_eosio_constraints.hpp>
-#include <eosio/chain/resource_limits.hpp>
-#include <eosio/chain/exceptions.hpp>
-#include <eosio/chain/wast_to_wasm.hpp>
-#include <eosio/chain_plugin/chain_plugin.hpp>
+#include <pose/testing/tester.hpp>
+#include <pose/chain/abi_serializer.hpp>
+#include <pose/chain/wasm_eosio_constraints.hpp>
+#include <pose/chain/resource_limits.hpp>
+#include <pose/chain/exceptions.hpp>
+#include <pose/chain/wast_to_wasm.hpp>
+#include <pose/chain_plugin/chain_plugin.hpp>
 
 #include <contracts.hpp>
 

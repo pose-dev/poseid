@@ -1,4 +1,4 @@
-#include <eosio/testing/tester_network.hpp>
+#include <pose/testing/tester_network.hpp>
 
 namespace eosio { namespace testing {
 
