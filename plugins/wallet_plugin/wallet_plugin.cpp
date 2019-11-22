@@ -2,10 +2,10 @@
  *  @file
  *  @copyright defined in eos/LICENSE
  */
-#include <eosio/wallet_plugin/wallet_plugin.hpp>
-#include <eosio/wallet_plugin/wallet_manager.hpp>
-#include <eosio/wallet_plugin/yubihsm_wallet.hpp>
-#include <eosio/chain/exceptions.hpp>
+#include <pose/wallet_plugin/wallet_plugin.hpp>
+#include <pose/wallet_plugin/wallet_manager.hpp>
+#include <pose/wallet_plugin/yubihsm_wallet.hpp>
+#include <pose/chain/exceptions.hpp>
 #include <boost/filesystem/path.hpp>
 #include <chrono>
 

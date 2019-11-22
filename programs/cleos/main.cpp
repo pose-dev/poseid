@@ -86,12 +86,12 @@ Options:
 #include <fc/variant_object.hpp>
 #include <fc/static_variant.hpp>
 
-#include <eosio/chain/name.hpp>
-#include <eosio/chain/config.hpp>
-#include <eosio/chain/wast_to_wasm.hpp>
-#include <eosio/chain/trace.hpp>
-#include <eosio/chain_plugin/chain_plugin.hpp>
-#include <eosio/chain/contract_types.hpp>
+#include <pose/chain/name.hpp>
+#include <pose/chain/config.hpp>
+#include <pose/chain/wast_to_wasm.hpp>
+#include <pose/chain/trace.hpp>
+#include <pose/chain_plugin/chain_plugin.hpp>
+#include <pose/chain/contract_types.hpp>
 
 #pragma push_macro("N")
 #undef N
@@ -166,7 +166,7 @@ bfs::path determine_home_directory()
 }
 
 string url = "http://127.0.0.1:8888/";
-string default_wallet_url = "unix://" + (determine_home_directory() / "eosio-wallet" / (string(key_store_executable_name) + ".sock")).string();
+string default_wallet_url = "unix://" + (determine_home_directory() / "pose-wallet" / (string(key_store_executable_name) + ".sock")).string();
 string wallet_url; //to be set to default_wallet_url in main
 bool no_verify = false;
 vector<string> headers;
@@ -364,7 +364,7 @@ void print_action( const fc::variant& at ) {
    auto console = at["console"].as_string();
 
    /*
-   if( code == "eosio" && func == "setcode" )
+   if( code == "pose" && func == "setcode" )
       args = args.substr(40)+"...";
    if( name(code) == config::system_account_name && func == "setabi" )
       args = args.substr(40)+"...";
@@ -1418,7 +1418,7 @@ struct bidname_info_subcommand {
       list_producers->add_option("newname", newname, localized("The bidding name"))->required();
       list_producers->set_callback([this] {
          auto rawResult = call(get_table_func, fc::mutable_variant_object("json", true)
-                               ("code", "eosio")("scope", "eosio")("table", "namebids")
+                               ("code", "pose")("scope", "pose")("table", "namebids")
                                ("lower_bound", newname.value)
                                ("upper_bound", newname.value + 1)
                                // Less than ideal upper_bound usage preserved so cleos can still work with old buggy nodeos versions
@@ -2224,7 +2224,7 @@ void get_account( const string& accountName, const string& coresym, bool json_fo
             std::cout << "unstaking tokens:" << std::endl;
             std::cout << indent << std::left << std::setw(25) << "time of unstake request:" << std::right << std::setw(20) << string(request_time);
             if( now >= refund_time ) {
-               std::cout << " (available to claim now with 'eosio::refund' action)\n";
+               std::cout << " (available to claim now with 'pose::refund' action)\n";
             } else {
                std::cout << " (funds will be available in " << to_pretty_time( (refund_time - now).count(), 0 ) << ")\n";
             }
@@ -2291,7 +2291,7 @@ int main( int argc, char** argv ) {
    context = eosio::client::http::create_http_context();
    wallet_url = default_wallet_url;
 
-   CLI::App app{"Command Line Interface to EOSIO Client"};
+   CLI::App app{"Command Line Interface to POSE Client"};
    app.require_subcommand();
    app.add_option( "-H,--host", obsoleted_option_host_port, localized("the host where nodeos is running") )->group("hidden");
    app.add_option( "-p,--port", obsoleted_option_host_port, localized("the port where nodeos is running") )->group("hidden");

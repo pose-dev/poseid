@@ -2,21 +2,21 @@
  *  @file
  *  @copyright defined in eos/LICENSE
  */
-#include <eosio/chain_plugin/chain_plugin.hpp>
-#include <eosio/chain/fork_database.hpp>
-#include <eosio/chain/block_log.hpp>
-#include <eosio/chain/exceptions.hpp>
-#include <eosio/chain/authorization_manager.hpp>
-#include <eosio/chain/producer_object.hpp>
-#include <eosio/chain/config.hpp>
-#include <eosio/chain/wasm_interface.hpp>
-#include <eosio/chain/resource_limits.hpp>
-#include <eosio/chain/reversible_block_object.hpp>
-#include <eosio/chain/controller.hpp>
-#include <eosio/chain/generated_transaction_object.hpp>
-#include <eosio/chain/snapshot.hpp>
+#include <pose/chain_plugin/chain_plugin.hpp>
+#include <pose/chain/fork_database.hpp>
+#include <pose/chain/block_log.hpp>
+#include <pose/chain/exceptions.hpp>
+#include <pose/chain/authorization_manager.hpp>
+#include <pose/chain/producer_object.hpp>
+#include <pose/chain/config.hpp>
+#include <pose/chain/wasm_interface.hpp>
+#include <pose/chain/resource_limits.hpp>
+#include <pose/chain/reversible_block_object.hpp>
+#include <pose/chain/controller.hpp>
+#include <pose/chain/generated_transaction_object.hpp>
+#include <pose/chain/snapshot.hpp>
 
-#include <eosio/chain/eosio_contract.hpp>
+#include <pose/chain/eosio_contract.hpp>
 
 #include <boost/signals2/connection.hpp>
 #include <boost/algorithm/string.hpp>

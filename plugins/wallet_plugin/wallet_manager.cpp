@@ -3,10 +3,10 @@
  *  @copyright defined in eos/LICENSE
  */
 #include <appbase/application.hpp>
-#include <eosio/wallet_plugin/wallet_manager.hpp>
-#include <eosio/wallet_plugin/wallet.hpp>
-#include <eosio/wallet_plugin/se_wallet.hpp>
-#include <eosio/chain/exceptions.hpp>
+#include <pose/wallet_plugin/wallet_manager.hpp>
+#include <pose/wallet_plugin/wallet.hpp>
+#include <pose/wallet_plugin/se_wallet.hpp>
+#include <pose/chain/exceptions.hpp>
 #include <boost/algorithm/string.hpp>
 namespace eosio {
 namespace wallet {

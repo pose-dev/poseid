@@ -3,9 +3,9 @@
  *  @copyright defined in eos/LICENSE
  */
 
-#include <eosio/chain/config.hpp>
-#include <eosio/state_history_plugin/state_history_log.hpp>
-#include <eosio/state_history_plugin/state_history_serialization.hpp>
+#include <pose/chain/config.hpp>
+#include <pose/state_history_plugin/state_history_log.hpp>
+#include <pose/state_history_plugin/state_history_serialization.hpp>
 
 #include <boost/asio/bind_executor.hpp>
 #include <boost/asio/ip/host_name.hpp>

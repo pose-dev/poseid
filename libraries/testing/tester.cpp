@@ -1,9 +1,9 @@
 #include <boost/test/unit_test.hpp>
 #include <boost/algorithm/string/predicate.hpp>
-#include <eosio/testing/tester.hpp>
-#include <eosio/chain/wast_to_wasm.hpp>
-#include <eosio/chain/eosio_contract.hpp>
-#include <eosio/chain/generated_transaction_object.hpp>
+#include <pose/testing/tester.hpp>
+#include <pose/chain/wast_to_wasm.hpp>
+#include <pose/chain/eosio_contract.hpp>
+#include <pose/chain/generated_transaction_object.hpp>
 
 #include <fstream>
 

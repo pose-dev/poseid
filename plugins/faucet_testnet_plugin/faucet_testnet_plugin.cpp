@@ -2,8 +2,8 @@
  *  @file
  *  @copyright defined in eos/LICENSE
  */
-#include <eosio/faucet_testnet_plugin/faucet_testnet_plugin.hpp>
-#include <eosio/chain_plugin/chain_plugin.hpp>
+#include <pose/faucet_testnet_plugin/faucet_testnet_plugin.hpp>
+#include <pose/chain_plugin/chain_plugin.hpp>
 
 #include <fc/variant.hpp>
 #include <fc/io/json.hpp>

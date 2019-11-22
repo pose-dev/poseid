@@ -4,8 +4,8 @@
  */
 #include <appbase/application.hpp>
 
-#include <eosio/wallet_plugin/yubihsm_wallet.hpp>
-#include <eosio/chain/exceptions.hpp>
+#include <pose/wallet_plugin/yubihsm_wallet.hpp>
+#include <pose/chain/exceptions.hpp>
 #include <yubihsm.h>
 
 #include <fc/crypto/openssl.hpp>

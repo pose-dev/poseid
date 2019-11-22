@@ -2,8 +2,8 @@
  *  @file
  *  @copyright defined in eos/LICENSE
  */
-#include <eosio/producer_api_plugin/producer_api_plugin.hpp>
-#include <eosio/chain/exceptions.hpp>
+#include <pose/producer_api_plugin/producer_api_plugin.hpp>
+#include <pose/chain/exceptions.hpp>
 
 #include <fc/variant.hpp>
 #include <fc/io/json.hpp>

@@ -2,16 +2,16 @@
  *  @file
  *  @copyright defined in eos/LICENSE
  */
-#include <eosio/chain/types.hpp>
+#include <pose/chain/types.hpp>
 
-#include <eosio/net_plugin/net_plugin.hpp>
-#include <eosio/net_plugin/protocol.hpp>
-#include <eosio/chain/controller.hpp>
-#include <eosio/chain/exceptions.hpp>
-#include <eosio/chain/block.hpp>
-#include <eosio/chain/plugin_interface.hpp>
-#include <eosio/producer_plugin/producer_plugin.hpp>
-#include <eosio/chain/contract_types.hpp>
+#include <pose/net_plugin/net_plugin.hpp>
+#include <pose/net_plugin/protocol.hpp>
+#include <pose/chain/controller.hpp>
+#include <pose/chain/exceptions.hpp>
+#include <pose/chain/block.hpp>
+#include <pose/chain/plugin_interface.hpp>
+#include <pose/producer_plugin/producer_plugin.hpp>
+#include <pose/chain/contract_types.hpp>
 
 #include <fc/network/message_buffer.hpp>
 #include <fc/network/ip.hpp>

@@ -2,7 +2,7 @@
  *  @file
  *  @copyright defined in eos/LICENSE
  */
-#include <eosio/wallet_plugin/wallet.hpp>
+#include <pose/wallet_plugin/wallet.hpp>
 
 #include <algorithm>
 #include <cctype>
@@ -27,7 +27,7 @@
 #ifndef WIN32
 # include <sys/types.h>
 # include <sys/stat.h>
-#include <eosio/chain/exceptions.hpp>
+#include <pose/chain/exceptions.hpp>
 
 #endif
 

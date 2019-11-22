@@ -19,9 +19,9 @@
 #include <fc/variant.hpp>
 #include <fc/io/json.hpp>
 #include <fc/network/platform_root_ca.hpp>
-#include <eosio/chain/exceptions.hpp>
-#include <eosio/http_plugin/http_plugin.hpp>
-#include <eosio/chain_plugin/chain_plugin.hpp>
+#include <pose/chain/exceptions.hpp>
+#include <pose/http_plugin/http_plugin.hpp>
+#include <pose/chain_plugin/chain_plugin.hpp>
 #include <boost/asio/ssl/rfc2818_verification.hpp>
 #include "httpc.hpp"
 

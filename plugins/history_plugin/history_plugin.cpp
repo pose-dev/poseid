@@ -1,9 +1,9 @@
-#include <eosio/history_plugin/history_plugin.hpp>
-#include <eosio/history_plugin/account_control_history_object.hpp>
-#include <eosio/history_plugin/public_key_history_object.hpp>
-#include <eosio/chain/controller.hpp>
-#include <eosio/chain/trace.hpp>
-#include <eosio/chain_plugin/chain_plugin.hpp>
+#include <pose/history_plugin/history_plugin.hpp>
+#include <pose/history_plugin/account_control_history_object.hpp>
+#include <pose/history_plugin/public_key_history_object.hpp>
+#include <pose/chain/controller.hpp>
+#include <pose/chain/trace.hpp>
+#include <pose/chain_plugin/chain_plugin.hpp>
 
 #include <fc/io/json.hpp>
 

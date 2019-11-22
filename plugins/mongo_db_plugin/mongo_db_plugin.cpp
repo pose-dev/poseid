@@ -2,13 +2,13 @@
  *  @file
  *  @copyright defined in eos/LICENSE
  */
-#include <eosio/mongo_db_plugin/mongo_db_plugin.hpp>
-#include <eosio/chain/eosio_contract.hpp>
-#include <eosio/chain/config.hpp>
-#include <eosio/chain/exceptions.hpp>
-#include <eosio/chain/transaction.hpp>
-#include <eosio/chain/types.hpp>
-#include <eosio/chain/exname.hpp>
+#include <pose/mongo_db_plugin/mongo_db_plugin.hpp>
+#include <pose/chain/eosio_contract.hpp>
+#include <pose/chain/config.hpp>
+#include <pose/chain/exceptions.hpp>
+#include <pose/chain/transaction.hpp>
+#include <pose/chain/types.hpp>
+#include <pose/chain/exname.hpp>
 
 #include <fc/io/json.hpp>
 #include <fc/utf8.hpp>

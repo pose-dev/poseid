@@ -2,13 +2,13 @@
  *  @file
  *  @copyright defined in eos/LICENSE
  */
-#include <eosio/producer_plugin/producer_plugin.hpp>
-#include <eosio/chain/producer_object.hpp>
-#include <eosio/chain/plugin_interface.hpp>
-#include <eosio/chain/global_property_object.hpp>
-#include <eosio/chain/generated_transaction_object.hpp>
-#include <eosio/chain/transaction_object.hpp>
-#include <eosio/chain/snapshot.hpp>
+#include <pose/producer_plugin/producer_plugin.hpp>
+#include <pose/chain/producer_object.hpp>
+#include <pose/chain/plugin_interface.hpp>
+#include <pose/chain/global_property_object.hpp>
+#include <pose/chain/generated_transaction_object.hpp>
+#include <pose/chain/transaction_object.hpp>
+#include <pose/chain/snapshot.hpp>
 
 #include <fc/io/json.hpp>
 #include <fc/smart_ref_impl.hpp>
