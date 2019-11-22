@@ -3,8 +3,8 @@
  *  @copyright defined in eos/LICENSE
  */
 
-#include <eosio/chain/chain_id_type.hpp>
-#include <eosio/chain/exceptions.hpp>
+#include <pose/chain/chain_id_type.hpp>
+#include <pose/chain/exceptions.hpp>
 
 namespace eosio { namespace chain {
 

@@ -17,9 +17,9 @@
 #include <boost/iostreams/device/back_inserter.hpp>
 #include <boost/iostreams/filter/zlib.hpp>
 
-#include <eosio/chain/config.hpp>
-#include <eosio/chain/exceptions.hpp>
-#include <eosio/chain/transaction.hpp>
+#include <pose/chain/config.hpp>
+#include <pose/chain/exceptions.hpp>
+#include <pose/chain/transaction.hpp>
 
 namespace eosio { namespace chain {
 

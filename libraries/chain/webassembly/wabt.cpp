@@ -1,6 +1,6 @@
-#include <eosio/chain/webassembly/wabt.hpp>
-#include <eosio/chain/apply_context.hpp>
-#include <eosio/chain/wasm_eosio_constraints.hpp>
+#include <pose/chain/webassembly/wabt.hpp>
+#include <pose/chain/apply_context.hpp>
+#include <pose/chain/wasm_eosio_constraints.hpp>
 
 //wabt includes
 #include <src/interp.h>

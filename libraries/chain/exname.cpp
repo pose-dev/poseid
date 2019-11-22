@@ -1,9 +1,9 @@
-#include <eosio/chain/exname.hpp>
+#include <pose/chain/exname.hpp>
 #include <fc/crypto/sha256.hpp>
 #include <fc/variant.hpp>
 #include <boost/algorithm/string.hpp>
 #include <fc/exception/exception.hpp>
-#include <eosio/chain/exceptions.hpp>
+#include <pose/chain/exceptions.hpp>
 
 namespace eosio { namespace chain { 
 

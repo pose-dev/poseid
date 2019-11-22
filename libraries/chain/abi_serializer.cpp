@@ -2,13 +2,13 @@
  *  @file
  *  @copyright defined in eos/LICENSE
  */
-#include <eosio/chain/abi_serializer.hpp>
-#include <eosio/chain/contract_types.hpp>
-#include <eosio/chain/authority.hpp>
-#include <eosio/chain/chain_config.hpp>
-#include <eosio/chain/transaction.hpp>
-#include <eosio/chain/asset.hpp>
-#include <eosio/chain/exceptions.hpp>
+#include <pose/chain/abi_serializer.hpp>
+#include <pose/chain/contract_types.hpp>
+#include <pose/chain/authority.hpp>
+#include <pose/chain/chain_config.hpp>
+#include <pose/chain/transaction.hpp>
+#include <pose/chain/asset.hpp>
+#include <pose/chain/exceptions.hpp>
 #include <fc/io/raw.hpp>
 #include <boost/algorithm/string/predicate.hpp>
 #include <fc/io/varint.hpp>

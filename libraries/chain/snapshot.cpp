@@ -1,5 +1,5 @@
-#include <eosio/chain/snapshot.hpp>
-#include <eosio/chain/exceptions.hpp>
+#include <pose/chain/snapshot.hpp>
+#include <pose/chain/exceptions.hpp>
 #include <fc/scoped_exit.hpp>
 
 namespace eosio { namespace chain {

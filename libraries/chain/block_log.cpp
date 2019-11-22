@@ -2,8 +2,8 @@
  *  @file
  *  @copyright defined in eos/LICENSE
  */
-#include <eosio/chain/block_log.hpp>
-#include <eosio/chain/exceptions.hpp>
+#include <pose/chain/block_log.hpp>
+#include <pose/chain/exceptions.hpp>
 #include <fstream>
 #include <fc/io/raw.hpp>
 

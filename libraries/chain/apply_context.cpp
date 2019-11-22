@@ -1,14 +1,14 @@
 #include <algorithm>
-#include <eosio/chain/apply_context.hpp>
-#include <eosio/chain/controller.hpp>
-#include <eosio/chain/transaction_context.hpp>
-#include <eosio/chain/exceptions.hpp>
-#include <eosio/chain/wasm_interface.hpp>
-#include <eosio/chain/generated_transaction_object.hpp>
-#include <eosio/chain/authorization_manager.hpp>
-#include <eosio/chain/resource_limits.hpp>
-#include <eosio/chain/account_object.hpp>
-#include <eosio/chain/global_property_object.hpp>
+#include <pose/chain/apply_context.hpp>
+#include <pose/chain/controller.hpp>
+#include <pose/chain/transaction_context.hpp>
+#include <pose/chain/exceptions.hpp>
+#include <pose/chain/wasm_interface.hpp>
+#include <pose/chain/generated_transaction_object.hpp>
+#include <pose/chain/authorization_manager.hpp>
+#include <pose/chain/resource_limits.hpp>
+#include <pose/chain/account_object.hpp>
+#include <pose/chain/global_property_object.hpp>
 #include <boost/container/flat_set.hpp>
 
 using boost::container::flat_set;

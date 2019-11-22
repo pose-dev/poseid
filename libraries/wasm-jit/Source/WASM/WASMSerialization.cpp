@@ -1,4 +1,4 @@
-#include "../../../chain/include/eosio/chain/wasm_eosio_constraints.hpp"
+#include "../../../chain/include/pose/chain/wasm_eosio_constraints.hpp"
 #include "Inline/BasicTypes.h"
 #include "Inline/Serialization.h"
 #include "Inline/UTF8.h"

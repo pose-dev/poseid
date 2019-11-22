@@ -1,5 +1,5 @@
-#include <eosio/chain/transaction_metadata.hpp>
-#include <eosio/chain/thread_utils.hpp>
+#include <pose/chain/transaction_metadata.hpp>
+#include <pose/chain/thread_utils.hpp>
 #include <boost/asio/thread_pool.hpp>
 
 namespace eosio { namespace chain {

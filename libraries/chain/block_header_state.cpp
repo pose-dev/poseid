@@ -1,5 +1,5 @@
-#include <eosio/chain/block_header_state.hpp>
-#include <eosio/chain/exceptions.hpp>
+#include <pose/chain/block_header_state.hpp>
+#include <pose/chain/exceptions.hpp>
 #include <limits>
 
 namespace eosio { namespace chain {

@@ -2,7 +2,7 @@
  *  @file
  *  @copyright defined in eos/LICENSE
  */
-#include <eosio/chain/asset.hpp>
+#include <pose/chain/asset.hpp>
 #include <boost/rational.hpp>
 #include <fc/reflect/variant.hpp>
 

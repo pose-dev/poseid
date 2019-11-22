@@ -3,7 +3,7 @@
  *  @copyright defined in eos/LICENSE
  */
 
-#include <eosio/chain/genesis_state.hpp>
+#include <pose/chain/genesis_state.hpp>
 
 namespace eosio { namespace chain {
 

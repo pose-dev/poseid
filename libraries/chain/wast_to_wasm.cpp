@@ -2,7 +2,7 @@
  *  @file
  *  @copyright defined in eos/LICENSE
  */
-#include <eosio/chain/wast_to_wasm.hpp>
+#include <pose/chain/wast_to_wasm.hpp>
 #include <Inline/BasicTypes.h>
 #include <IR/Module.h>
 #include <IR/Validate.h>
@@ -12,7 +12,7 @@
 #include <sstream>
 #include <iomanip>
 #include <fc/exception/exception.hpp>
-#include <eosio/chain/exceptions.hpp>
+#include <pose/chain/exceptions.hpp>
 
 namespace eosio { namespace chain {
 

@@ -1,6 +1,6 @@
 
-#include <eosio/chain/fee_object.hpp>
-#include <eosio/chain/controller.hpp>
+#include <pose/chain/fee_object.hpp>
+#include <pose/chain/controller.hpp>
 
 namespace eosio{
 namespace chain{

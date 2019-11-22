@@ -1,8 +1,8 @@
-#include <eosio/chain/wasm_eosio_constraints.hpp>
-#include <eosio/chain/wasm_eosio_validation.hpp>
-#include <eosio/chain/wasm_eosio_binary_ops.hpp>
+#include <pose/chain/wasm_eosio_constraints.hpp>
+#include <pose/chain/wasm_eosio_validation.hpp>
+#include <pose/chain/wasm_eosio_binary_ops.hpp>
 #include <fc/exception/exception.hpp>
-#include <eosio/chain/exceptions.hpp>
+#include <pose/chain/exceptions.hpp>
 #include "IR/Module.h"
 #include "IR/Operators.h"
 #include "WASM/WASM.h"

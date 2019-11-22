@@ -1,24 +1,24 @@
-#include <eosio/chain/controller.hpp>
-#include <eosio/chain/transaction_context.hpp>
+#include <pose/chain/controller.hpp>
+#include <pose/chain/transaction_context.hpp>
 
-#include <eosio/chain/block_log.hpp>
-#include <eosio/chain/fork_database.hpp>
-#include <eosio/chain/exceptions.hpp>
+#include <pose/chain/block_log.hpp>
+#include <pose/chain/fork_database.hpp>
+#include <pose/chain/exceptions.hpp>
 
-#include <eosio/chain/account_object.hpp>
-#include <eosio/chain/block_summary_object.hpp>
-#include <eosio/chain/eosio_contract.hpp>
-#include <eosio/chain/global_property_object.hpp>
-#include <eosio/chain/contract_table_objects.hpp>
-#include <eosio/chain/generated_transaction_object.hpp>
-#include <eosio/chain/transaction_object.hpp>
-#include <eosio/chain/reversible_block_object.hpp>
-#include <eosio/chain/fee_object.hpp>
+#include <pose/chain/account_object.hpp>
+#include <pose/chain/block_summary_object.hpp>
+#include <pose/chain/eosio_contract.hpp>
+#include <pose/chain/global_property_object.hpp>
+#include <pose/chain/contract_table_objects.hpp>
+#include <pose/chain/generated_transaction_object.hpp>
+#include <pose/chain/transaction_object.hpp>
+#include <pose/chain/reversible_block_object.hpp>
+#include <pose/chain/fee_object.hpp>
 
-#include <eosio/chain/authorization_manager.hpp>
-#include <eosio/chain/resource_limits.hpp>
-#include <eosio/chain/chain_snapshot.hpp>
-#include <eosio/chain/thread_utils.hpp>
+#include <pose/chain/authorization_manager.hpp>
+#include <pose/chain/resource_limits.hpp>
+#include <pose/chain/chain_snapshot.hpp>
+#include <pose/chain/thread_utils.hpp>
 
 #include <chainbase/chainbase.hpp>
 #include <fc/io/json.hpp>
