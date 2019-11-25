@@ -1,6 +1,6 @@
 /**
  *  @file
- *  @copyright defined in eos/LICENSE
+ *  @copyright defined in pose/LICENSE
  */
 #include <pose/mongo_db_plugin/mongo_db_plugin.hpp>
 #include <pose/chain/pose_contract.hpp>

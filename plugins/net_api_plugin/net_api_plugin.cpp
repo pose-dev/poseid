@@ -1,6 +1,6 @@
 /**
  *  @file
- *  @copyright defined in eos/LICENSE
+ *  @copyright defined in pose/LICENSE
  */
 #include <pose/net_api_plugin/net_api_plugin.hpp>
 #include <pose/chain/exceptions.hpp>

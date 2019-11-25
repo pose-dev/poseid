@@ -1,6 +1,6 @@
 /**
  *  @file
- *  @copyright defined in eos/LICENSE
+ *  @copyright defined in pose/LICENSE
  */
 #include <pose/producer_api_plugin/producer_api_plugin.hpp>
 #include <pose/chain/exceptions.hpp>

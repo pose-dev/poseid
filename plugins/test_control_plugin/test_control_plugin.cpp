@@ -1,6 +1,6 @@
 /**
  *  @file
- *  @copyright defined in eos/LICENSE
+ *  @copyright defined in pose/LICENSE
  */
 #include <pose/test_control_plugin/test_control_plugin.hpp>
 #include <fc/optional.hpp>

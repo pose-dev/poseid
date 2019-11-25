@@ -1,6 +1,6 @@
-#include <pose/chain/wasm_eosio_constraints.hpp>
-#include <pose/chain/wasm_eosio_injection.hpp>
-#include <pose/chain/wasm_eosio_binary_ops.hpp>
+#include <pose/chain/wasm_pose_constraints.hpp>
+#include <pose/chain/wasm_pose_injection.hpp>
+#include <pose/chain/wasm_pose_binary_ops.hpp>
 #include <fc/exception/exception.hpp>
 #include <pose/chain/exceptions.hpp>
 #include "IR/Module.h"

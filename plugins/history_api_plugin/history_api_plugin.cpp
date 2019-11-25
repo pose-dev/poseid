@@ -1,6 +1,6 @@
 /**
  *  @file
- *  @copyright defined in eos/LICENSE
+ *  @copyright defined in pose/LICENSE
  */
 #include <pose/history_api_plugin/history_api_plugin.hpp>
 #include <pose/chain/exceptions.hpp>

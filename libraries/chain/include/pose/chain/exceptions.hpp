@@ -19,7 +19,7 @@
 
 /**
  * Macro inspired from FC_RETHROW_EXCEPTIONS
- * The main difference here is that if the exception caught isn't of type "eosio::chain::chain_exception"
+ * The main difference here is that if the exception caught isn't of type "pose::chain::chain_exception"
  * This macro will rethrow the exception as the specified "exception_type"
  */
 #define EOS_RETHROW_EXCEPTIONS(exception_type, FORMAT, ... ) \
@@ -42,7 +42,7 @@
 
 /**
  * Macro inspired from FC_CAPTURE_AND_RETHROW
- * The main difference here is that if the exception caught isn't of type "eosio::chain::chain_exception"
+ * The main difference here is that if the exception caught isn't of type "pose::chain::chain_exception"
  * This macro will rethrow the exception as the specified "exception_type"
  */
 #define EOS_CAPTURE_AND_RETHROW( exception_type, ... ) \

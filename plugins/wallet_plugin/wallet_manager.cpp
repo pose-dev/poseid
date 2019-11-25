@@ -1,6 +1,6 @@
 /**
  *  @file
- *  @copyright defined in eos/LICENSE
+ *  @copyright defined in pose/LICENSE
  */
 #include <appbase/application.hpp>
 #include <pose/wallet_plugin/wallet_manager.hpp>
@@ -82,7 +82,7 @@ std::string wallet_manager::create(const std::string& name) {
    wallet->save_wallet_file();
 
    // If we have name in our map then remove it since we want the emplace below to replace.
-   // This can happen if the wallet file is removed while eos-walletd is running.
+   // This can happen if the wallet file is removed while pose-walletd is running.
    auto it = wallets.find(name);
    if (it != wallets.end()) {
       wallets.erase(it);
@@ -106,7 +106,7 @@ void wallet_manager::open(const std::string& name) {
    }
 
    // If we have name in our map then remove it since we want the emplace below to replace.
-   // This can happen if the wallet file is added while eos-walletd is running.
+   // This can happen if the wallet file is added while pose-walletd is running.
    auto it = wallets.find(name);
    if (it != wallets.end()) {
       wallets.erase(it);

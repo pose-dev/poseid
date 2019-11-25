@@ -1,6 +1,6 @@
 #include <pose/chain/webassembly/wavm.hpp>
-#include <pose/chain/wasm_eosio_constraints.hpp>
-#include <pose/chain/wasm_eosio_injection.hpp>
+#include <pose/chain/wasm_pose_constraints.hpp>
+#include <pose/chain/wasm_pose_injection.hpp>
 #include <pose/chain/apply_context.hpp>
 #include <pose/chain/exceptions.hpp>
 

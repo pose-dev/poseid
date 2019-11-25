@@ -8,8 +8,8 @@
 #include <pose/chain/authorization_manager.hpp>
 #include <pose/chain/resource_limits.hpp>
 #include <pose/chain/wasm_interface_private.hpp>
-#include <pose/chain/wasm_eosio_validation.hpp>
-#include <pose/chain/wasm_eosio_injection.hpp>
+#include <pose/chain/wasm_pose_validation.hpp>
+#include <pose/chain/wasm_pose_injection.hpp>
 #include <pose/chain/global_property_object.hpp>
 #include <pose/chain/account_object.hpp>
 #include <fc/exception/exception.hpp>

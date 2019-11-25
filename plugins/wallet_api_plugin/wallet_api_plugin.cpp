@@ -1,6 +1,6 @@
 /**
  *  @file
- *  @copyright defined in eos/LICENSE
+ *  @copyright defined in pose/LICENSE
  */
 #include <pose/wallet_api_plugin/wallet_api_plugin.hpp>
 #include <pose/wallet_plugin/wallet_manager.hpp>

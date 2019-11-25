@@ -1,7 +1,7 @@
 #pragma once
 
 #include <pose/chain/wasm_interface.hpp>
-#include <pose/chain/wasm_eosio_constraints.hpp>
+#include <pose/chain/wasm_pose_constraints.hpp>
 
 #define EOSIO_INJECTED_MODULE_NAME "eosio_injection"
 

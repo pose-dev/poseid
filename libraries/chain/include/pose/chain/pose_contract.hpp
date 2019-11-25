@@ -22,9 +22,9 @@ namespace eosio { namespace chain {
    void apply_pose_unlinkauth(apply_context&);
 
    /*
-   void apply_eosio_postrecovery(apply_context&);
-   void apply_eosio_passrecovery(apply_context&);
-   void apply_eosio_vetorecovery(apply_context&);
+   void apply_pose_postrecovery(apply_context&);
+   void apply_pose_passrecovery(apply_context&);
+   void apply_pose_vetorecovery(apply_context&);
    */
 
    void apply_pose_setcode(apply_context&);

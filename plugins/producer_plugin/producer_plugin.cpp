@@ -1,6 +1,6 @@
 /**
  *  @file
- *  @copyright defined in eos/LICENSE
+ *  @copyright defined in pose/LICENSE
  */
 #include <pose/producer_plugin/producer_plugin.hpp>
 #include <pose/chain/producer_object.hpp>
@@ -487,7 +487,7 @@ void new_chain_banner(const eosio::chain::controller& db)
       "*******************************\n"
       "*                             *\n"
       "*   ------ NEW CHAIN ------   *\n"
-      "*   -  Welcome to EOSIO!  -   *\n"
+      "*   -  Welcome to POSE!  -   *\n"
       "*   -----------------------   *\n"
       "*                             *\n"
       "*******************************\n"
@@ -533,10 +533,10 @@ void producer_plugin::set_program_options(
          ("signature-provider", boost::program_options::value<vector<string>>()->composing()->multitoken()->default_value({std::string(default_priv_key.get_public_key()) + "=KEY:" + std::string(default_priv_key)}, std::string(default_priv_key.get_public_key()) + "=KEY:" + std::string(default_priv_key)),
           "Key=Value pairs in the form <public-key>=<provider-spec>\n"
           "Where:\n"
-          "   <public-key>    \tis a string form of a vaild EOSIO public key\n\n"
+          "   <public-key>    \tis a string form of a vaild POSE public key\n\n"
           "   <provider-spec> \tis a string in the form <provider-type>:<data>\n\n"
-          "   <provider-type> \tis KEY, or KEOSD\n\n"
-          "   KEY:<data>      \tis a string form of a valid EOSIO private key which maps to the provided public key\n\n"
+          "   <provider-type> \tis KEY, or KPOSED\n\n"
+          "   KEY:<data>      \tis a string form of a valid POSE private key which maps to the provided public key\n\n"
           "   KEOSD:<data>    \tis the URL where keosd is available and the approptiate wallet(s) are unlocked")
          ("keosd-provider-timeout", boost::program_options::value<int32_t>()->default_value(5),
           "Limits the maximum time (in milliseconds) that is allowed for sending blocks to a keosd provider for signing")

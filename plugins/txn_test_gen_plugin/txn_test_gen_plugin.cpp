@@ -1,6 +1,6 @@
 /**
  *  @file
- *  @copyright defined in eos/LICENSE
+ *  @copyright defined in pose/LICENSE
  */
 #include <pose/txn_test_gen_plugin/txn_test_gen_plugin.hpp>
 #include <pose/chain_plugin/chain_plugin.hpp>

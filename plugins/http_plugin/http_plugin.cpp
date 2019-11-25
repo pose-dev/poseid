@@ -1,6 +1,6 @@
 /**
  *  @file
- *  @copyright defined in eos/LICENSE
+ *  @copyright defined in pose/LICENSE
  */
 #include <pose/http_plugin/http_plugin.hpp>
 #include <pose/http_plugin/local_endpoint.hpp>

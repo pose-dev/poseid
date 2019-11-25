@@ -4,7 +4,7 @@
 #include <pose/chain/webassembly/wavm.hpp>
 #include <pose/chain/webassembly/wabt.hpp>
 #include <pose/chain/webassembly/runtime_interface.hpp>
-#include <pose/chain/wasm_eosio_injection.hpp>
+#include <pose/chain/wasm_pose_injection.hpp>
 #include <pose/chain/transaction_context.hpp>
 #include <pose/chain/exceptions.hpp>
 #include <fc/scoped_exit.hpp>
