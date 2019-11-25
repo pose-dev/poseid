@@ -2,7 +2,7 @@
  *  @file
  *  @copyright defined in pose/LICENSE
  */
-#include <pose/chain/eosio_contract.hpp>
+#include <pose/chain/pose_contract.hpp>
 #include <pose/chain/contract_table_objects.hpp>
 
 #include <pose/chain/controller.hpp>

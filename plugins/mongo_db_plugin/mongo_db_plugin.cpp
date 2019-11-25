@@ -3,7 +3,7 @@
  *  @copyright defined in eos/LICENSE
  */
 #include <pose/mongo_db_plugin/mongo_db_plugin.hpp>
-#include <pose/chain/eosio_contract.hpp>
+#include <pose/chain/pose_contract.hpp>
 #include <pose/chain/config.hpp>
 #include <pose/chain/exceptions.hpp>
 #include <pose/chain/transaction.hpp>

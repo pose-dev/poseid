@@ -21,8 +21,8 @@ add_library( pose_chain
              resource_limits.cpp
              block_log.cpp
              transaction_context.cpp
-             eosio_contract.cpp
-             eosio_contract_abi.cpp
+             pose_contract.cpp
+             pose_contract_abi.cpp
              chain_config.cpp
              chain_id_type.cpp
              genesis_state.cpp

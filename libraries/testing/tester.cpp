@@ -2,7 +2,7 @@
 #include <boost/algorithm/string/predicate.hpp>
 #include <pose/testing/tester.hpp>
 #include <pose/chain/wast_to_wasm.hpp>
-#include <pose/chain/eosio_contract.hpp>
+#include <pose/chain/pose_contract.hpp>
 #include <pose/chain/generated_transaction_object.hpp>
 
 #include <fstream>

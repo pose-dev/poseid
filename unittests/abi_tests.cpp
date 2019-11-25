@@ -17,7 +17,7 @@
 
 #include <pose/chain/contract_types.hpp>
 #include <pose/chain/abi_serializer.hpp>
-#include <pose/chain/eosio_contract.hpp>
+#include <pose/chain/pose_contract.hpp>
 #include <pose/testing/tester.hpp>
 
 #include <boost/test/framework.hpp>

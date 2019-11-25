@@ -16,7 +16,7 @@
 #include <pose/chain/generated_transaction_object.hpp>
 #include <pose/chain/snapshot.hpp>
 
-#include <pose/chain/eosio_contract.hpp>
+#include <pose/chain/pose_contract.hpp>
 
 #include <boost/signals2/connection.hpp>
 #include <boost/algorithm/string.hpp>

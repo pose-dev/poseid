@@ -7,7 +7,7 @@
 
 #include <pose/chain/account_object.hpp>
 #include <pose/chain/block_summary_object.hpp>
-#include <pose/chain/eosio_contract.hpp>
+#include <pose/chain/pose_contract.hpp>
 #include <pose/chain/global_property_object.hpp>
 #include <pose/chain/contract_table_objects.hpp>
 #include <pose/chain/generated_transaction_object.hpp>
