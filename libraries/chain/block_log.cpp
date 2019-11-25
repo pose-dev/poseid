@@ -1,6 +1,6 @@
 /**
  *  @file
- *  @copyright defined in eos/LICENSE
+ *  @copyright defined in pose/LICENSE
  */
 #include <pose/chain/block_log.hpp>
 #include <pose/chain/exceptions.hpp>

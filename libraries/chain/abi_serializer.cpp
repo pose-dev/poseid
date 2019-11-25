@@ -1,6 +1,6 @@
 /**
  *  @file
- *  @copyright defined in eos/LICENSE
+ *  @copyright defined in pose/LICENSE
  */
 #include <pose/chain/abi_serializer.hpp>
 #include <pose/chain/contract_types.hpp>

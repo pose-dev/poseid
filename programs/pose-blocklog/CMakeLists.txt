@@ -14,7 +14,7 @@ target_include_directories(pose-blocklog PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
 
 target_link_libraries( pose-blocklog
         PRIVATE appbase
-        PRIVATE eosio_chain fc ${CMAKE_DL_LIBS} ${PLATFORM_SPECIFIC_LIBS} )
+        PRIVATE pose_chain fc ${CMAKE_DL_LIBS} ${PLATFORM_SPECIFIC_LIBS} )
 
 install( TARGETS
    pose-blocklog

@@ -6,7 +6,7 @@ file(GLOB HEADERS "include/pose/chain/*.hpp"
                   "${CMAKE_CURRENT_BINARY_DIR}/include/pose/chain/core_symbol.hpp" )
 
 ## SORT .cpp by most likely to change / break compile
-add_library( eosio_chain
+add_library( pose_chain
              merkle.cpp
              name.cpp
              exname.cpp
@@ -52,17 +52,17 @@ add_library( eosio_chain
              ${HEADERS}
              )
 
-target_link_libraries( eosio_chain fc chainbase Logging IR WAST WASM Runtime
+target_link_libraries( pose_chain fc chainbase Logging IR WAST WASM Runtime
                        softfloat builtins wabt
                      )
-target_include_directories( eosio_chain
+target_include_directories( pose_chain
                             PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include" "${CMAKE_CURRENT_BINARY_DIR}/include"
                                    "${CMAKE_CURRENT_SOURCE_DIR}/../wasm-jit/Include"
                                    "${CMAKE_SOURCE_DIR}/libraries/wabt"
                                    "${CMAKE_BINARY_DIR}/libraries/wabt"
                             )
 
-install( TARGETS eosio_chain
+install( TARGETS pose_chain
    RUNTIME DESTINATION ${CMAKE_INSTALL_FULL_BINDIR}
    LIBRARY DESTINATION ${CMAKE_INSTALL_FULL_LIBDIR}
    ARCHIVE DESTINATION ${CMAKE_INSTALL_FULL_LIBDIR}

@@ -81,7 +81,7 @@ if [ -d "/usr/local/include/eosio" ] || [ -d "$HOME/opt/eosio" ] || [ $FORCED ==
             popd &> /dev/null
             libraries=(
                libeosio_testing
-               libeosio_chain
+               libpose_chain
                libfc
                libbinaryen
                libWAST

@@ -63,7 +63,7 @@ if(BUILD_MONGO_DB_PLUGIN)
     )
 
   target_link_libraries(mongo_db_plugin
-          PUBLIC chain_plugin eosio_chain appbase
+          PUBLIC chain_plugin pose_chain appbase
           ${EOS_LIBMONGOCXX} ${EOS_LIBBSONCXX}
           )
                

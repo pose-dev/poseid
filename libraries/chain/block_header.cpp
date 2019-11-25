@@ -1,6 +1,6 @@
 /**
  *  @file
- *  @copyright defined in eos/LICENSE
+ *  @copyright defined in pose/LICENSE
  */
 #include <pose/chain/block.hpp>
 #include <pose/chain/merkle.hpp>

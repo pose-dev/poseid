@@ -1,6 +1,6 @@
 /**
  *  @file
- *  @copyright defined in eos/LICENSE
+ *  @copyright defined in pose/LICENSE
  */
 #include <pose/chain/eosio_contract.hpp>
 #include <pose/chain/contract_table_objects.hpp>
