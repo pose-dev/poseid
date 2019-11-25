@@ -7,7 +7,7 @@
 
 #include <pose/testing/tester.hpp>
 #include <pose/chain/abi_serializer.hpp>
-#include <pose/chain/wasm_eosio_constraints.hpp>
+#include <pose/chain/wasm_pose_constraints.hpp>
 #include <pose/chain/resource_limits.hpp>
 #include <pose/chain/exceptions.hpp>
 #include <pose/chain/wast_to_wasm.hpp>
